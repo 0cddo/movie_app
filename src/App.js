@@ -1,3 +1,4 @@
+import { current } from 'immer';
 import React from 'react'
 // import PropTypes from "prop-types";
 
@@ -6,11 +7,14 @@ class App extends React.Component {
   state = {
     count: 0
   };
+
+  // setState 사용 이유: 새 state와 함께 render function 호출하기 위해
   plus = () => {
-    console.log('plus')
+    // this.state.count -> 좋은 코드 아님, 외부에서 코드를 불러오기 때문에
+    this.setState( current => ({count: current.count + 1}))
   }
   minus = () => {
-    console.log('minus')
+    this.setState( current => ({count: current.count -1}))
   }
 
   render() {

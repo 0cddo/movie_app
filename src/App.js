@@ -3,6 +3,7 @@ import React from 'react'
 // import PropTypes from "prop-types";
 
 class App extends React.Component {
+
   // state에는 변할 데이터 값 입력
   state = {
     count: 0
@@ -17,7 +18,23 @@ class App extends React.Component {
     this.setState( current => ({count: current.count -1}))
   }
 
+  
+  componentDidMount(){
+    console.log('component rended')
+  }
+
+  // component가 업데이트될때마다 렌더함수와 함께 렌더링
+  componentDidUpdate(){
+    console.log('i just updated')
+  }
+
+  // kill component 
+  componentWillUnmount(){
+    console.log('good bye!')
+  }
+
   render() {
+    console.log('im rendering')
     return (
       <div>
         <h1>The number is: {this.state.count}</h1>

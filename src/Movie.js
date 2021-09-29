@@ -8,6 +8,7 @@ function Movie({ year, title, summary, poster, genres }) {
       <div className="movie__data">
         <h3 className="movie__title">{title}</h3>
         <h4 className="movie__year">{year}</h4>
+        <ul className="movie__genres">
         <p className="movie__summary">{summary}</p>
       </div>
     </div>

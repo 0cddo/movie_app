@@ -30,16 +30,18 @@ class App extends React.Component {
   render() {
     const { isLoading, movies } = this.state;
     return (
-      <div>
-        {isLoading
-          ? "Loading..."
-          : // moviesRender 함수생성해도 괜찮음
-            // map 으로 부터 항상 뭔가 return 해야함
-            movies.map((movie) => {
-              console.log(movie);
-              return (
+      // css를 위한 Html
+      <section className="container">
+        <div>
+          {isLoading ? (
+            <div className="loader">
+              <span className="loader__text">Loading...</span>
+            </div>
+          ) : (
+            <div className="movies">
+              {movies.map((movie) => (
+                //  return 없음
                 <Movie
-                  // key prop 지정
                   key={movie.id}
                   id={movie.id}
                   year={movie.year}
@@ -47,9 +49,11 @@ class App extends React.Component {
                   summary={movie.summary}
                   poster={movie.medium_cover_image}
                 />
-              );
-            })}
-      </div>
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
     );
   }
 }

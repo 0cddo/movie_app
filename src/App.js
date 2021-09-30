@@ -3,6 +3,9 @@ import axios from "axios";
 import Movie from "./Movie";
 import "./App.css";
 
+// 코드 cloud 업로드 -> gh-pages 설치
+// 웹사이트를 github의 github page 도메인에 나타나게 해줌
+
 class App extends React.Component {
   state = {
     isLoading: true,
@@ -10,9 +13,7 @@ class App extends React.Component {
     movies: [],
   };
 
-  // async await 사용
   getMovies = async () => {
-    // ?sort_by=rating -> Endpoint Parameters , rating으로 데이터 정렬(best movie 순)
     const {
       data: {
         data: { movies },

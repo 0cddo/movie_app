@@ -4,6 +4,7 @@ import Home from "./router/Home";
 import About from "./router/About";
 import "./App.css";
 import Navigation from "./components/Navigation";
+import Detail from "./router/Detail";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Navigation />
       <Route path="/" exact={true} component={Home} />
       <Route path="/about" component={About} />
+      <Route path="/movie-detail" component={Detail} />
     </BrowserRouter>
   );
 }

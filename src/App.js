@@ -2,27 +2,20 @@ import React from "react";
 import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
 import Home from "./router/Home";
 import About from "./router/About";
+import "./App.css";
+import Navigation from "./components/Navigation";
 
 function App() {
   return (
+    // HashRouter와 BrowserRouter의 차이점 -> HashRouter는 주소창에  /#/ 가 있음
+    //HashRouter가 github page에 사용하기 용이함
+
     <BrowserRouter>
-      {/* 2개의 컴포넌트가 동시에 렌더링 방지를 위해 exact={true} 사용
-      해당 url의 오직 단하나만 렌더링함 */}
+      {/*  Link는 Router 밖에서 쓸 수 없음 
+      ex) <footer> 같은 경우 router 밖에서 쓸 수 있음 , 물론 Fragment 필요함 */}
+      <Navigation />
       <Route path="/" exact={true} component={Home} />
       <Route path="/about" component={About} />
-
-      {/* 컴포넌트 동시 렌더링 방지 */}
-      {/* home과 introduction은 두개 동시에 렌더링됨  
-        -> url이 작동하는 방식 , 리액트 라우터는 기본적으로 url 을 가져옴 그리고 비교함 */}
-      {/* <Route path="/home">
-        <h1>Home</h1>
-      </Route>
-      <Route path="/home/introduction">
-        <h1>Introduction</h1>
-      </Route>
-      <Route path="/about">
-        <h1>About</h1>
-      </Route> */}
     </BrowserRouter>
   );
 }

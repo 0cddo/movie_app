@@ -3,16 +3,20 @@ import PropTypes from "prop-types";
 import "./Movie.css";
 import { Link } from "react-router-dom";
 
-function Movie({ year, title, summary, poster, genres }) {
+function Movie({ id, year, title, summary, poster, genres }) {
   return (
     <Link
       to={{
-        pathname: "/movie-detail",
-        year,
-        title,
-        summary,
-        poster,
-        genres,
+        // pathname 템플릿 리터럴 사용
+        pathname: `movie/${id}`,
+        // state 삽입
+        state: {
+          year,
+          title,
+          summary,
+          poster,
+          genres,
+        },
       }}
     >
       <div className="movie">

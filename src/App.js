@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
+import { BrowserRouter, Route } from "react-router-dom";
 import Home from "./router/Home";
 import About from "./router/About";
 import "./App.css";
@@ -17,7 +17,8 @@ function App() {
       <Navigation />
       <Route path="/" exact={true} component={Home} />
       <Route path="/about" component={About} />
-      <Route path="/movie-detail" component={Detail} />
+      {/* Detail route path값 id 변수 설정 */}
+      <Route path="/movie/:id" component={Detail} />
     </BrowserRouter>
   );
 }
